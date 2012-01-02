@@ -5,12 +5,12 @@
 
 C=/tmp/backupdir
 S=/system
-V=CyanogenMod-9
+V=9
 
 PROCEED=1;
 
 check_prereq() {
-   if ( ! grep -q "^ro.modversion=.*$V.*" /system/build.prop );
+   if ( ! grep -q "^ro.cm.version=$V.*" /system/build.prop );
    then
       echo "Not backing up files from incompatible version.";
       PROCEED=0;
@@ -71,8 +71,6 @@ etc/permissions/features.xml
 app/MediaUploader.apk
 app/GoogleFeedback.apk
 app/GoogleTTS.apk
-app/CalendarGoogle.apk app/Calendar.apk
-app/CalendarProvider.apk
 app/MarketUpdater.apk
 app/GoogleServicesFramework.apk
 app/YouTube.apk
@@ -91,10 +89,12 @@ app/GalleryGoogle.apk app/Gallery.apk
 app/FaceLock.apk
 app/Vending.apk
 app/GoogleContactsSyncAdapter.apk
+app/GoogleCalendarSyncAdapter.apk
 app/Gmail.apk
 app/OneTimeInitializer.apk
 app/NetworkLocation.apk
 app/GooglePartnerSetup.apk
+app/Phonesky.apk
 etc/hosts
 etc/custom_backup_list.txt
 etc/force_backuptool
