@@ -13,7 +13,6 @@ add_lunch_combo cm_pyramid-userdebug
 add_lunch_combo cm_shooter-userdebug
 add_lunch_combo cm_shooteru-userdebug
 add_lunch_combo cm_smb_a1011-userdebug
-add_lunch_combo cyanogen_apollo-eng
 add_lunch_combo cm_tenderloin-userdebug
 add_lunch_combo cm_toro-userdebug
 add_lunch_combo cm_wingray-userdebug
