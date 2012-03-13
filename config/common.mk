@@ -24,8 +24,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     vendor/cm/CHANGELOG.mkdn:system/etc/CHANGELOG-CM.txt
 
+# Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh
+    vendor/cm/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
+    vendor/cm/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
+    vendor/cm/prebuilt/common/bin/50-cm.sh:system/addon.d/50-cm.sh
 
 # init.d support
 PRODUCT_COPY_FILES += \
@@ -72,6 +75,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     VideoEditor \
     VoiceDialer \
+    SoundRecorder \
+    SpeechRecorder \
     Basic \
     HoloSpiralWallpaper \
     MagicSmokeWallpapers \
@@ -85,7 +90,6 @@ PRODUCT_PACKAGES += \
 # Custom CM packages
 PRODUCT_PACKAGES += \
     Trebuchet \
-    CMStats \
     DSPManager \
     libcyanogen-dsp \
     audio_effects.conf
@@ -100,14 +104,19 @@ PRODUCT_VERSION_MAINTENANCE = 0-RC0
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_DISPLAY_ID=IML74K
 
 ifdef CM_NIGHTLY
-    PRODUCT_PROPERTY_OVERRIDES += \
-        ro.cm.version=$(PRODUCT_VERSION_MAJOR)-$(shell date +%m%d%Y)-NIGHTLY-$(PRODUCT_RELEASE_NAME)
+    CM_VERSION :=$(PRODUCT_VERSION_MAJOR)-$(shell date +%Y%m%d)-NIGHTLY-$(CM_BUILD)
 else
-    ifdef CM_RELEASE
-        PRODUCT_PROPERTY_OVERRIDES += \
-            ro.cm.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(PRODUCT_RELEASE_NAME)
+    ifdef CM_SNAPSHOT
+        CM_VERSION := $(PRODUCT_VERSION_MAJOR)-$(shell date +%Y%m%d)-SNAPSHOT-$(CM_BUILD)$(CM_EXTRAVERSION)
     else
-        PRODUCT_PROPERTY_OVERRIDES += \
-            ro.cm.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(PRODUCT_RELEASE_NAME)-KANG
+        ifdef CM_RELEASE
+            CM_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(CM_BUILD)
+        else
+            CM_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(CM_BUILD)-KANG
+        endif
     endif
 endif
+
+PRODUCT_PROPERTY_OVERRIDES += \
+  ro.cm.version=$(CM_VERSION) \
+  ro.modversion=$(CM_VERSION)
