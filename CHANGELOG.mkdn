@@ -41,19 +41,20 @@ Maintainers:
 * Star (LG Optimus 2/G2x): arcee, cyanogen
 * Galaxy S (GT-I9000): coolya, codeworkx, atinm, GuiperPT, Unhelpful
 * Captivate (SGH-I896/SGH-I897): atinm, Unhelpful, coolya, codeworkx
-* Vibrant (SGH-T959): coolya, atinm, codeworkx, Unhelpful
+* Vibrant (SGH-T959): FaultException
 * Vivo (Incredible S): Kali-, attn1
 * Vivow (Incredible 2): Kali-, attn1
 * Jordan (Defy): Quarx, Epsylon3, maniac103
 * Droid2 (MotoA955): JBirdVegas, RevNumbers
 * Galaxy S II (GT-I9100): atinm, codeworkx, coolya, GuiperPT, Unhelpful
+* Galaxy S II AT&T (SGH-I777): atinm, Andrew Dodd, codeworkx, coolya, GuiperPT, Unhelpful
 * Xperia Arc (LT15i): Bin4ry,defer,jerpelea (FreeXperia team)
 * Xperia Neo (MT15i): Bin4ry,defer,jerpelea (FreeXperia team)
 * Xperia Play (R800i): Bin4ry,defer,jerpelea (FreeXperia team)
 * Droid2we (Droid2 Global): RevNumbers, x13thangelx
 * V9 (ZTE Light, Optus MyTab, others): kallt_kaffe and Tom Giordano
 * Motus (Backflip) : j_r0dd, flavio_frow
-* Saga (Desire S): Nexx
+* Saga (Desire S): Nexx, nk111
 * Galaxy Tab 10.1: cyanogen, pershoot
 * Galaxy Tab 8.9: kallt_kaffe
 
@@ -81,7 +82,7 @@ CHANGELOG (notable new features)
 ---------
 
 ### 9.0.0
-* Common: Android 4.0.1 (Google)
+* Common: Android 4.0.4 (Google)
 
 ### 7.1.0
 * Common: Android 2.3.7 (Google)
